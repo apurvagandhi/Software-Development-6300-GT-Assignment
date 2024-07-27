@@ -1,0 +1,72 @@
+# File
+	Occurrence of FILE in option:
+		One.				
+		Many.				[error]
+		Not Present.			[error]
+  	The FILE idenfified by filename exists:
+      		File exists.
+      		File does not exists.         	[error]
+	Size:
+		Empty.				[error]
+		Not Empty.			
+	file content:
+		terminated by a newline.
+		not terminated by newline.	[error]	
+
+# Arguments
+	Occurrence of k in option:
+		One.				[property kpresent]
+		Multiple.			[property kpresent][single]
+		Not present.			
+	k specification:
+		Empty Substring.		[if kpresent]
+		Non Empty Substring.		[if kpresent]
+		Not Present.			[if kpresent][error]
+
+	Occurrence of p in option:
+		One time with t	option.		[property tpresent]
+						[property ppresent]
+						[if tpresent][error]
+		One time without t option.	[property ppresent][single]
+		Not present.			
+	p specification:
+		ch Not present. 		[if ppresent][error]
+		num Not present. 		[if ppresent][error]
+	 	String for ch Option.		[if ppresent][error]
+		Out of Range for num.     	[if ppresent][error]
+		Non-integer for num.		[if ppresent][error]
+		valid ch and Num parameter.	[if ppresent]
+
+	Occurrence of t in option:				
+		One time with p option.		[property ppresent]
+						[property tpresent]
+						[if ppresent][error]
+		One time without p option.	[property tpresent]
+		Not present.
+	t specification:
+		Out of Range.     		[if tpresent][error]
+		Non-integer.			[if tpresent][error]
+		Not Present.			[if tpresent][error]
+		valid integer between 0 to 100. [if tpresent]
+		
+	Occurrence of f in option:				
+		One.				[property fpresent]
+		Multiple.			[property fpresent][single]
+		Not present.			
+	f specification:
+		Empty Substring.		[if fpresent][error]
+		Invalid string for style.	[if fpresent][error]	
+		Not Present.			[if fpresent][error]
+		valid style value.		[if fpresent]
+		Non Empty Substring.		[if fpresent]
+
+	Occurrence of g in option:				
+		One with f option.		[if fpresent]
+						[property gpresent][single]
+		One without f option.		[if !fpresent][error]
+		Not present.
+		
+	Occurrence of r in option:				
+		One.				[property rpresent]
+		Multiple.			[property rpresent][single]
+		Not present.			
